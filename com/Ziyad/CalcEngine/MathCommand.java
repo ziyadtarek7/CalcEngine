@@ -1,6 +1,6 @@
 package com.Ziyad.CalcEngine;
 
-public enum MathCommand {
+enum MathCommand {
     Add,
     Subtract,
     Multiply,
