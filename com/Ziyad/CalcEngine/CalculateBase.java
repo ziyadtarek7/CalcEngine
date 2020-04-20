@@ -19,5 +19,5 @@ public abstract class CalculateBase {
         this.rightVal = rightVal;
     }
 
-    public abstract void calculate();
+    public abstract void calculate() throws InvalidStatementException;
 }

@@ -1,27 +1,30 @@
 package com.Ziyad.MyApp;
 
-import com.Ziyad.CalcEngine.CalculateHelper;
-import com.Ziyad.CalcEngine.InvalidStatementException;
+import com.Ziyad.CalcEngine.*;
 
 public class Main {
 
     public static void main(String[] args) {
         String[] statements = {
-                "add 1.0",
-                "add xx 25.0",
-                "addX 100.0 50.0",
-                "divide 100.0 50.0",
                 "add 25.0 92.0",
-                "subtract 225.0 17.0",
-                "multiply 11.0 3.0"
+                "power 0.0 0.0",
+                "divide 100.0 0.0",
+                "root 2.0 25.0"
         };
-        
-        CalculateHelper helper = new CalculateHelper();
-        for (String statement:statements) {
+        DynamicHelper helper = new DynamicHelper(new MathProcessing[] {
+                new Adder(),
+                new Subtracter(),
+                new Multiplier(),
+                new Divider(),
+                new PowerOf(),
+                new Root(),
+        });
+        for (String statement: statements) {
             try {
-                helper.process(statement);
-                System.out.println(helper);
-            }catch (InvalidStatementException e){
+                String output = helper.process(statement);
+                System.out.println(output);
+            }
+            catch (InvalidStatementException e){
                 System.out.println(e.getMessage());
                 if (e.getCause() != null)
                     System.out.println("    Original exception: " + e.getCause().getMessage());
