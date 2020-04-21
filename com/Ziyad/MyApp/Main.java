@@ -30,6 +30,7 @@ public class Main {
                 System.out.println(e.getMessage());
                 if (e.getCause() != null)
                     System.out.println("    Original exception: " + e.getCause().getMessage());
+                break;
             }
         }
     }
