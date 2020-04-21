@@ -1,6 +1,9 @@
 package com.Ziyad.CalcEngine;
 
 public class InvalidStatementException extends Exception {
+    public InvalidStatementException(String reason){
+        super(reason);
+    }
     public InvalidStatementException(String reason, String statement){
         super(reason + ": " + statement);
     }
